@@ -15,13 +15,33 @@ const config = defineConfig({
   ],
 
   fmt: {
-    ignorePatterns: ["src/routeTree.gen.ts"],
+    ignorePatterns: ["./src/routeTree.gen.ts"],
+    overrides: [
+      {
+        files: ["./src/**"],
+        options: {
+          sortTailwindcss: {
+            functions: ["cn"],
+            stylesheet: `./src/assets/styles/global.css`,
+            preserveWhitespace: false,
+          },
+        },
+      },
+    ],
   },
   lint: {
-    ignorePatterns: ["src/routeTree.gen.ts"],
+    ignorePatterns: ["./src/routeTree.gen.ts"],
     jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },
+    overrides: [
+      {
+        files: ["./src/routes/**/*.tsx"],
+        rules: {
+          "unicorn/filename-case": "off",
+        },
+      },
+    ],
   },
   resolve: { tsconfigPaths: true },
   staged: { "*": "vp check --fix" },
