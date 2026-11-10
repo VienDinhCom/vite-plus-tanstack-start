@@ -10,7 +10,11 @@ export default defineConfig({
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),
-    tanstackStart(),
+    tanstackStart({
+      router: {
+        addExtensions: true,
+      },
+    }),
     viteReact(),
   ],
 
