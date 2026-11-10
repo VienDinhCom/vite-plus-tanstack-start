@@ -5,7 +5,7 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 
-const config = defineConfig({
+export default defineConfig({
   plugins: [
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
@@ -15,14 +15,14 @@ const config = defineConfig({
   ],
 
   fmt: {
-    ignorePatterns: ["./src/routeTree.gen.ts"],
+    ignorePatterns: ["src/routeTree.gen.ts"],
     overrides: [
       {
-        files: ["./src/**"],
+        files: ["src/**"],
         options: {
           sortTailwindcss: {
             functions: ["cn"],
-            stylesheet: `./src/assets/styles/global.css`,
+            stylesheet: `src/assets/styles/global.css`,
             preserveWhitespace: false,
           },
         },
@@ -30,13 +30,13 @@ const config = defineConfig({
     ],
   },
   lint: {
-    ignorePatterns: ["./src/routeTree.gen.ts"],
+    ignorePatterns: ["src/routeTree.gen.ts"],
     jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },
     overrides: [
       {
-        files: ["./src/routes/**/*.tsx"],
+        files: ["src/routes/**/*.tsx"],
         rules: {
           "unicorn/filename-case": "off",
         },
@@ -46,5 +46,3 @@ const config = defineConfig({
   resolve: { tsconfigPaths: true },
   staged: { "*": "vp check --fix" },
 });
-
-export default config;
