@@ -49,5 +49,11 @@
       "version": "^24.22.2",
       "onFail": "download"
     }
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "lightningcss"
+    ]
   }
 }
