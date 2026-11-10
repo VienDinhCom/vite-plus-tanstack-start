@@ -1,8 +1,9 @@
 import { defineConfig } from "vite-plus";
 import { devtools } from "@tanstack/devtools-vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import babel from "@rolldown/plugin-babel";
 import { nitro } from "nitro/vite";
 
 export default defineConfig({
@@ -16,6 +17,7 @@ export default defineConfig({
       },
     }),
     viteReact(),
+    babel({ presets: [reactCompilerPreset()] }),
   ],
 
   fmt: {
