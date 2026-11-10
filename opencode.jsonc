@@ -6,6 +6,8 @@
       "codegraph": {
         "type": "local",
         "command": ["codegraph", "serve", "--mcp"],
+        "disabled": false,
+        "codemode": false,
       },
       "chrome-devtools": {
         "type": "local",
