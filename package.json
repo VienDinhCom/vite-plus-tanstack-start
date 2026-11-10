@@ -8,6 +8,7 @@
   "scripts": {
     "build": "vp build",
     "preview": "vp preview",
+    "setup": "node setup.ts",
     "dev": "vp dev --port 3000"
   },
   "dependencies": {

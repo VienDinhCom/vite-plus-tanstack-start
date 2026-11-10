@@ -14,14 +14,13 @@ function exec(cmd: string, cwd?: string) {
   }
 }
 
-// Install dependencies and enable git hooks
+// Install dependencies
 {
   for await (const dir of fs.glob("./**/node_modules")) {
     await fs.rm(dir, { recursive: true });
   }
 
   exec("vp install");
-  exec("vp hooks enable");
 }
 
 // Bootstrap .env files
@@ -35,5 +34,8 @@ function exec(cmd: string, cwd?: string) {
 
 // Run Tasks
 {
+  exec("vp hooks enable");
+
+  exec("npm i -g @colbymchenry/codegraph");
   exec("codegraph init");
 }
