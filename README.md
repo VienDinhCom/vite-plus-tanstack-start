@@ -18,6 +18,14 @@ Setup the project by installing dependencies, and bootstrapping environment file
 vp run setup
 ```
 
+### Develop
+
+Start the development server on http://localhost:3000.
+
+```bash
+vp run dev
+```
+
 ### Build
 
 Build the project in production mode.
@@ -26,12 +34,20 @@ Build the project in production mode.
 vp run build
 ```
 
+### Start
+
+Serve the production build.
+
+```bash
+vp run start
+```
+
 ### Test
 
 Run the project tests.
 
 ```bash
-vp test
+vp run test
 ```
 
 ### Type Check, Lint & Format
@@ -39,11 +55,11 @@ vp test
 Analyze the code to find problems with `typescript`, `oxlint` and `oxfmt`.
 
 ```bash
-vp check
+vp run check
 ```
 
 Automatically fix problems.
 
 ```bash
-vp check --fix
+vp run fix
 ```

@@ -7,9 +7,12 @@
   },
   "scripts": {
     "build": "vp build",
-    "preview": "vp preview",
-    "setup": "node setup.ts",
-    "dev": "vp dev --port 3000"
+    "dev": "vp dev --port 3000",
+    "start": "node .output/server/index.mjs",
+    "test": "vp test",
+    "check": "vp check",
+    "fix": "vp check --fix",
+    "setup": "node setup.ts"
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.13.11",
