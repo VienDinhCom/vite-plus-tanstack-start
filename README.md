@@ -1,4 +1,4 @@
-# Vite Plus TanStack Start 
+# Vite Plus TanStack Start
 
 Vite Plus for TanStack Start Development with AI Agents.
 
